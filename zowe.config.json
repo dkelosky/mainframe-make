@@ -1,0 +1,40 @@
+{
+    "$schema": "./zowe.schema.json",
+    "profiles": {
+        "ca11": {
+            "properties": {
+                "host": "usilca11.lvn.broadcom.net"
+            },
+            "profiles": {
+                "zosmf": {
+                    "type": "zosmf",
+                    "properties": {
+                        "port": 1443
+                    }
+                },
+                "ssh": {
+                    "type": "ssh",
+                    "properties": {
+                        "port": 22
+                    }
+                }
+            }
+        },
+        "base": {
+            "type": "base",
+            "properties": {
+                "rejectUnauthorized": true
+            }
+        }
+    },
+    "defaults": {
+        "zosmf": "ca11.zosmf",
+        "ssh": "ca11.ssh",
+        "base": "base"
+    },
+    "plugins": [],
+    "secure": [
+        "profiles.base.properties.user",
+        "profiles.base.properties.password"
+    ]
+}
