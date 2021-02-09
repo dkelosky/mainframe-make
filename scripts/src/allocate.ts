@@ -1,8 +1,8 @@
 import { runCmd } from "./utils"
-import { ZOWE, DIR, ZFS } from "./constants"
+import { ZOWE, TARGET_DIR, ZFS } from "./constants"
 
 (async () => {
-    await createDirs(DIR);
+    await createDirs(TARGET_DIR);
     await creatZfs(ZFS);
 })();
 
@@ -10,7 +10,7 @@ import { ZOWE, DIR, ZFS } from "./constants"
 
 async function createDirs(dir: string) {
     console.log(`Creating directory "${dir}"...`);
-    const mkdirCmd = `zowex uss issue ssh 'mkdir -p "${dir}"'`;
+    const mkdirCmd = `${ZOWE} uss issue ssh 'mkdir -p "${dir}"'`;
     const strResp = await runCmd(mkdirCmd, false);
     console.log(`${strResp}`);
 }
