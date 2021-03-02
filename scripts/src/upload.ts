@@ -1,10 +1,9 @@
 import { runCmd } from "./utils"
 import { ZOWE, TARGET_DIR, SOURCE_DIR } from "./constants"
-import { readFile, readdir } from "fs";
+import { readdir } from "fs";
 import { sep } from "path";
 import { promisify } from "util"
 
-const read = promisify(readFile);
 const readDir = promisify(readdir);
 
 (async () => {

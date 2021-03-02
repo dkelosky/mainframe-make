@@ -3,7 +3,7 @@ import { promisify } from "util"
 
 const exc = promisify(exec);
 
-export async function runCmd(cmd: string, rfj = true) {
+export async function runCmd(cmd: string, rfj = false) {
     cmd += (rfj) ? " --rfj" : ""
     const resp = await exc(cmd);
     if (resp.stderr) {
