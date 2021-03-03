@@ -6,7 +6,7 @@ import { ZOWE, TARGET_DIR, SOURCE_DIR } from "./constants"
 })();
 
 async function make(dir: string) {
-    const makeCmd = `${ZOWE} uss issue ssh "cd '${dir}' && 'make'"`;
+    const makeCmd = `${ZOWE} uss issue ssh \\"cd ${dir} && make\\"`;
     const strResp = await runCmd(makeCmd);
     console.log(`... ${strResp}`);
 }
