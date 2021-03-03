@@ -21,6 +21,8 @@ async function creatZfs(zfs: string) {
     const listCmd = `${ZOWE} files list ds "${ZFS}"`;
     const createCmd = `${ZOWE} files create zfs "${ZFS}"`;
 
+    const volumes = `--volumes `
+
     console.log(`Checking for ZFS "${zfs}"...`);
     let strResp = await runCmd(listCmd, true);
     const jsonResp = JSON.parse(strResp);
