@@ -1,3 +1,6 @@
+#! /bin/env node
+
+
 import { runCmd } from "./utils"
 import { ZOWE, TARGET_DIR, SOURCE_DIR } from "./constants"
 import { readdir } from "fs";

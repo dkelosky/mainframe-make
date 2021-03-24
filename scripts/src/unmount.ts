@@ -12,8 +12,12 @@ async function unmount(zfs: string) {
     if (mounted) {
         console.log(`Unmounting "${zfs}"...`);
         const unmountCmd = `${ZOWE} files unmount fs "${zfs}"`;
-        const strResp = await runCmd(unmountCmd);
-        console.log(`${strResp}`);
+        try {
+            const strResp = await runCmd(unmountCmd);
+            console.log(`${strResp}`);
+        } catch (err) {
+            console.log(err)
+        }
     }
 
 }

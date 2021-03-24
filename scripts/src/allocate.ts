@@ -1,3 +1,5 @@
+#! /bin/env node
+
 import { runCmd } from "./utils"
 import { ZOWE, TARGET_DIR, ZFS } from "./constants"
 import { mountZfs } from "./mount"

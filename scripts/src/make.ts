@@ -1,5 +1,6 @@
+#! /bin/env node
 import { runCmd } from "./utils"
-import { ZOWE, TARGET_DIR, SOURCE_DIR } from "./constants"
+import { ZOWE, TARGET_DIR } from "./constants"
 
 (async () => {
     await make(TARGET_DIR);

@@ -1,5 +1,5 @@
 import { runCmd } from "./utils"
-import { ZOWE, TARGET_DIR, ZFS } from "./constants"
+import { ZOWE} from "./constants"
 
 export async function mountZfs(zfs: string, dir: string) {
     const mountCmd = `${ZOWE} files mount fs ${zfs} '${dir}' -m rdwr`;
