@@ -10,6 +10,7 @@ FLAGS=-W "c,lp64"
 
 all: $(TARGET)
 
+# listings must have .lst suffix to be automatically downloaded
 $(TARGET): $(TARGET).o
 	$(BIND) $(BINDFLAGS) -V -eMAIN -o $@ $^ > $*.bind.lst
 

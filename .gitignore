@@ -2,3 +2,5 @@ node_modules/
 user.config.json
 out
 scripts/lib/
+.zowe-zos-dev
+.listings
