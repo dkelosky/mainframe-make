@@ -20,6 +20,25 @@
                 }
             }
         },
+        "xe61": {
+            "properties": {
+                "host": "usi161me.lvn.broadcom.net"
+            },
+            "profiles": {
+                "zosmf": {
+                    "type": "zosmf",
+                    "properties": {
+                        "port": 1443
+                    }
+                },
+                "ssh": {
+                    "type": "ssh",
+                    "properties": {
+                        "port": 22
+                    }
+                }
+            }
+        },
         "base": {
             "type": "base",
             "properties": {
