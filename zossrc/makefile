@@ -26,7 +26,8 @@ MTL_OPTS=metal,\
 MACLIBS=-ISYS1.MACLIB \
  -ICBC.SCCNSAM
 
-MTL_HEADERS=-I/usr/include/metal
+MTL_HEADERS=-I/usr/include/metal \
+ -Ilib/
 
 MTL_FLAGS=-S -W "c,$(MTL_OPTS)"
 
