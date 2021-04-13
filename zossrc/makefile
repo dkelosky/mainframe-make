@@ -49,8 +49,8 @@ $(TARGET).o: $(TARGET).s
 lec: lec.c
 	$(CC) $(FLAGS) -qlist=$*.cpp.lst -o $@ $^
 
-mtlmain: mtlmain.o
-	$(BIND) $(BIND_FLAGS) -V -eMAIN -o $@ $^ > $*.bind.lst
+mtlmain: mtlmain.o lib\ecbwait.h
+	$(BIND) $(BIND_FLAGS) -V -eMAIN -o $@ $< > $*.bind.lst
 
 mtlmain.o: mtlmain.s
 	$(ASM) $(ASMFLAGS) -a=$*.asm.lst -o $@ $^
