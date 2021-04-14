@@ -13,15 +13,17 @@ MTL_OPTS=metal,\
  inlrpt,\
  csect,\
  nose,\
- lp64,\
  list,\
- warn64,\
  optimize(2),\
  list,\
  showinc,\
  showmacro,\
  source,\
  aggregate
+
+MTL_OPTS_64=lp64,\
+ warn64,\
+ $(MTL_OPTS)
 
 MACLIBS=-ISYS1.MACLIB \
  -ICBC.SCCNSAM
@@ -30,6 +32,8 @@ MTL_HEADERS=-I/usr/include/metal \
  -Ilib/
 
 MTL_FLAGS=-S -W "c,$(MTL_OPTS)"
+
+MTL_FLAGS_64=-S -W "c,$(MTL_OPTS_64)"
 
 BIND_FLAGS = -bRMODE=ANY
 
@@ -46,17 +50,26 @@ $(TARGET): $(TARGET).o
 $(TARGET).o: $(TARGET).s
 	$(ASM) $(ASMFLAGS) -a=$*.asm.lst -o $@ $^
 
+# target
 lec: lec.c
 	$(CC) $(FLAGS) -qlist=$*.cpp.lst -o $@ $^
 
-mtlmain: mtlmain.o lib\ecbwait.h
+# target
+lib/ams.o: lib/ams.s
+	$(ASM) $(ASMFLAGS) -a=$*.asm.lst -o $@ $<
+
+lib/ams.s: lib/ams.c
+	$(CC) $(MTL_FLAGS) -qlist=$*.mtl.lst $(MTL_HEADERS) -o $@ $^
+
+# target
+mtlmain: mtlmain.o
 	$(BIND) $(BIND_FLAGS) -V -eMAIN -o $@ $< > $*.bind.lst
 
 mtlmain.o: mtlmain.s
 	$(ASM) $(ASMFLAGS) -a=$*.asm.lst -o $@ $^
 
 mtlmain.s: mtlmain.c
-	$(CC) $(MTL_FLAGS) -qlist=$*.mtl.lst $(MTL_HEADERS) -o $@ $^
+	$(CC) $(MTL_FLAGS_64) -qlist=$*.mtl.lst $(MTL_HEADERS) -o $@ $^
 
 # TODO(Kelosky): conditional delet files
 .PHONY: clean
