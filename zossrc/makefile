@@ -41,6 +41,9 @@ ASM_FLAGS=-mrent
 
 FLAGS=-W "c,lp64"
 
+# target: dependencies
+# <tab> rule
+
 all: $(TARGET)
 
 # listings must have .lst suffix to be automatically downloaded
@@ -62,7 +65,8 @@ lib/ams.s: lib/ams.c
 	$(CC) $(MTL_FLAGS) -qlist=$*.mtl.lst $(MTL_HEADERS) -o $@ $^
 
 # target
-mtlmain: mtlmain.o
+# using $^ for all
+mtlmain: mtlmain.o lib/ams.o
 	$(BIND) $(BIND_FLAGS) -V -eMAIN -o $@ $< > $*.bind.lst
 
 mtlmain.o: mtlmain.s
@@ -71,9 +75,12 @@ mtlmain.o: mtlmain.s
 mtlmain.s: mtlmain.c
 	$(CC) $(MTL_FLAGS_64) -qlist=$*.mtl.lst $(MTL_HEADERS) -o $@ $^
 
-# TODO(Kelosky): conditional delet files
+# TODO(Kelosky): conditional delete files
 .PHONY: clean
 clean:
-	rm *.o
-	rm *.lst
-	rm $(TARGET)
+	rm -f *.o
+	rm -f lib/*.o
+	rm -f lib/*.lst
+	rm -f lib/*.o
+	rm -f *.lst
+	rm -f $(TARGET)
