@@ -1,8 +1,20 @@
+# https://github.com/dkelosky/hello-wto/blob/master/Makefile
+# https://github.com/zowe/sample-spring-boot-api-service/blob/master/zowe-rest-api-sample-spring/zossrc/makefile
+
+# target: dependencies
+# <tab> rule
+
 ASM = as
 BIND = ld
 TARGET = main
 CC=xlc
 CXX=xlc++
+
+MACLIBS=-ISYS1.MACLIB \
+ -ICBC.SCCNSAM
+
+MTL_HEADERS=-I/usr/include/metal \
+ -Ilib/
 
 MTL_OPTS=metal,\
  langlvl(extended),\
@@ -25,24 +37,30 @@ MTL_OPTS_64=lp64,\
  warn64,\
  $(MTL_OPTS)
 
-MACLIBS=-ISYS1.MACLIB \
- -ICBC.SCCNSAM
-
-MTL_HEADERS=-I/usr/include/metal \
- -Ilib/
-
 MTL_FLAGS=-S -W "c,$(MTL_OPTS)"
-
 MTL_FLAGS_64=-S -W "c,$(MTL_OPTS_64)"
 
 BIND_FLAGS = -bRMODE=ANY
 
 ASM_FLAGS=-mrent
 
-FLAGS=-W "c,lp64"
+#
+# LE STUFF
+#
+LE_BIND_FLAGS=-W "l,lp64,xplink,map,list" \
+ -g \
+ -qsource
 
-# target: dependencies
-# <tab> rule
+FLAGS=-W "c,lp64,langlvl(extended),xplink,exportall"
+
+CPP_FLAGS=-W "c,lp64,langlvl(extended),xplink,exportall"\
+ -qsource \
+ -g \
+ -c
+
+BND_FLAGS=-W "l,lp64,xplink,map,list" \
+ -g \
+ -qsource
 
 all: $(TARGET)
 
@@ -55,11 +73,28 @@ $(TARGET).o: $(TARGET).s
 
 # target
 lec: lec.c
-	$(CC) $(FLAGS) -qlist=$*.cpp.lst -o $@ $^
+	$(CC) $(FLAGS) -qlist=$*.c.lst -o $@ $^
 
-# target
+###
+###
+###
+lib/run: lib/run.o lib/runexec.o
+	$(CXX) $(BND_FLAGS) -o $@ $^ > $*.bind.lst
+
+lib/run.o: lib/run.cpp
+	$(CXX) $(CPP_FLAGS) -qlist=$*.cpp.lst -o $@ $^
+
+lib/runexec.o: lib/runexec.s
+	$(ASM) $(ASMFLAGS) -a=$*.asm.lst $(MACLIBS) -o $@ $<
+
+lib/runexec.s: lib/runexec.c
+	$(CC) $(MTL_FLAGS_64) -qlist=$*.mtl.lst $(MTL_HEADERS) -o $@ $^
+
+###
+### AMS utilities
+###
 lib/ams.o: lib/ams.s
-	$(ASM) $(ASMFLAGS) -a=$*.asm.lst -o $@ $<
+	$(ASM) $(ASMFLAGS) -a=$*.asm.lst $(MACLIBS) -o $@ $<
 
 lib/ams.s: lib/ams.c
 	$(CC) $(MTL_FLAGS) -qlist=$*.mtl.lst $(MTL_HEADERS) -o $@ $^
@@ -70,17 +105,15 @@ mtlmain: mtlmain.o lib/ams.o
 	$(BIND) $(BIND_FLAGS) -V -eMAIN -o $@ $< > $*.bind.lst
 
 mtlmain.o: mtlmain.s
-	$(ASM) $(ASMFLAGS) -a=$*.asm.lst -o $@ $^
+	$(ASM) $(ASMFLAGS) -a=$*.asm.lst $(MACLIBS) -o $@ $^
 
 mtlmain.s: mtlmain.c
 	$(CC) $(MTL_FLAGS_64) -qlist=$*.mtl.lst $(MTL_HEADERS) -o $@ $^
 
-# TODO(Kelosky): conditional delete files
+###
+### Cleanup
+###
 .PHONY: clean
 clean:
-	rm -f *.o
-	rm -f lib/*.o
-	rm -f lib/*.lst
-	rm -f lib/*.o
-	rm -f *.lst
+	rm -f *.o *.lst lib/*.o lib/*.lst
 	rm -f $(TARGET)

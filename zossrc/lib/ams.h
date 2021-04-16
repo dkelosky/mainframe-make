@@ -11,6 +11,10 @@
 #include "storage.h"
 #include "ihadcbe.h"
 
+// IO_CTRL *sysprintIoc = openOutputAssert("SYSPRINT", 132, 132, dcbrecf + dcbrecbr);
+// IO_CTRL *snapIoc = openOutputAssert("SNAP", 125, 1632, dcbrecv + dcbrecbr + dcbrecca);
+// IO_CTRL *inIoc = openInputAssert("IN", 80, 80, dcbrecf);
+
 #if defined(__IBM_METAL__)
 #define DCB_WRITE_MODEL(dcbwm)                                  \
     __asm(                                                      \
