@@ -53,12 +53,21 @@ LE_BIND_FLAGS=-W "l,lp64,xplink,map,list" \
 
 FLAGS=-W "c,lp64,langlvl(extended),xplink,exportall"
 
-CPP_FLAGS=-W "c,lp64,langlvl(extended),xplink,exportall"\
+CPP_FLAGS=-W "c,langlvl(extended),xplink,exportall"\
  -qsource \
  -g \
  -c
 
-BND_FLAGS=-W "l,lp64,xplink,map,list" \
+CPP_FLAGS_64=-W "c,lp64,langlvl(extended),xplink,exportall"\
+ -qsource \
+ -g \
+ -c
+
+BND_FLAGS=-W "l,xplink,map,list" \
+ -g \
+ -qsource
+
+BND_FLAGS_64=-W "l,lp64,xplink,map,list" \
  -g \
  -qsource
 
@@ -88,7 +97,7 @@ lib/runexec.o: lib/runexec.s
 	$(ASM) $(ASMFLAGS) -a=$*.asm.lst $(MACLIBS) -o $@ $<
 
 lib/runexec.s: lib/runexec.c
-	$(CC) $(MTL_FLAGS_64) -qlist=$*.mtl.lst $(MTL_HEADERS) -o $@ $^
+	$(CC) $(MTL_FLAGS_64) -qlist=$*.mtl.lst $(MTL_HEADERS) -o $@ $<
 
 ###
 ### AMS utilities
