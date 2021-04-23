@@ -1,6 +1,26 @@
 {
     "$schema": "./zowe.schema.json",
     "profiles": {
+        "tso1": {
+            "properties": {
+                "host": "usildamd.lvn.broadcom.net"
+            },
+            "profiles": {
+                "zosmf": {
+                    "type": "zosmf",
+                    "properties": {
+                        "rejectUnauthorized": false,
+                        "port": 443
+                    }
+                },
+                "ssh": {
+                    "type": "ssh",
+                    "properties": {
+                        "port": 22
+                    }
+                }
+            }
+        },
         "ca11": {
             "properties": {
                 "host": "usilca11.lvn.broadcom.net"
@@ -10,6 +30,44 @@
                     "type": "zosmf",
                     "properties": {
                         "port": 1443
+                    }
+                },
+                "ssh": {
+                    "type": "ssh",
+                    "properties": {
+                        "port": 22
+                    }
+                }
+            }
+        },
+        "ca31": {
+            "properties": {
+                "host": "usilca31.lvn.broadcom.net"
+            },
+            "profiles": {
+                "zosmf": {
+                    "type": "zosmf",
+                    "properties": {
+                        "port": 1444
+                    }
+                },
+                "ssh": {
+                    "type": "ssh",
+                    "properties": {
+                        "port": 22
+                    }
+                }
+            }
+        },
+        "ca32": {
+            "properties": {
+                "host": "usilca32.lvn.broadcom.net"
+            },
+            "profiles": {
+                "zosmf": {
+                    "type": "zosmf",
+                    "properties": {
+                        "port": 1444
                     }
                 },
                 "ssh": {
@@ -47,8 +105,8 @@
         }
     },
     "defaults": {
-        "zosmf": "ca11.zosmf",
-        "ssh": "ca11.ssh",
+        "zosmf": "tso1.zosmf",
+        "ssh": "tso1.ssh",
         "base": "base"
     },
     "plugins": [],
