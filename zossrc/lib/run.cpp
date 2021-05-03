@@ -20,37 +20,36 @@ void allocate();
 
 EXTF *bpxwdyn = (EXTF *)fetch("BPXWDYN");
 
+//   ofstream myfile;
+//   myfile.open ("//DD:SNAP");
+
+// "ALLOC FI(SYSPRINT) PATH('/dev/fd1')  PATHOPTS(OWRONLY) FILEDATA(TEXT) MSG(2)"
+
 int main()
 {
-    cout << "hello" << endl;
+    cout << "c++ hello" << endl;
 
-    int i = RUNEXE("hello");
     allocate();
+    int i = RUNEXE("parm from c++");
     // call_alloc();
 
-    cout << "hello " << i << endl;
+    cout << "c++ return" << i << endl;
 }
 
 void allocate() {
 
     vector<char *> dds;
     dds.push_back("alloc fi(syslib) da(sys1.maclib) shr msg(2)");
-    dds.push_back("alloc dd(STEPLIB) da('kelda16.work.loadxe13') shr");
-    // dds.push_back("alloc dd(caoestop) DUMMY");
+    // dds.push_back("alloc fi(snap) path('/tmp/kelda16/maketso1/zossrc/snap.txt') PATHOPTS(OWRONLY,OCREAT,OTRUNC) PATHMODE(SIRWXU)");
+    dds.push_back("alloc dd(steplib) path('/tmp/kelda16/maketso1/zossrc') ");
+    // dds.push_back("alloc fi(snap) sysout(*) ");
+    // dds.push_back("alloc fi(snap) path('/dev/fd1') pathopts(owronly) filedata(text) msg(2)");
+    // dds.push_back("alloc fi(sysprint) path('/dev/fd1') pathopts(owronly) filedata(text) msg(2)");
+    dds.push_back("alloc fi(sysprint) path('/dev/fd1') pathopts(owronly) filedata(text) msg(2)");
 
     for (vector<char *>::iterator it = dds.begin(); it != dds.end(); it++) {
         call_alloc(*it);
     }
-
-    // array<char *> dds = new array();
-
-    // char *dds[] = {
-    //     "alloc fi(syslib) da(sys1.maclib) shr msg(2)",
-    //     "alloc fi(steplib) path('/tmp/kelda16/make2/zossrc') shr msg(2)",
-    //     "alloc dd(caoestop) DUMMY"
-    // };
-
-    // for (int i = 0; i < sizeof(dds) / sizeof)
 }
 
 void call_alloc(char *allocString)
@@ -58,11 +57,7 @@ void call_alloc(char *allocString)
     int rc = bpxwdyn(allocString);
 
     if (0 != rc) {
-        cout << ">> Failure for: '" << allocString << "' rc: " << rc << endl;
+        cout << ">> Failure for: '" << allocString << "' rc: " << hex << rc << endl;
     }
-
-    // bpxwdyn("alloc fi(steplib) path('/tmp/kelda16/make2/zossrc') shr msg(2)");
-    // bpxwdyn("alloc dd(caoestop) DUMMY");
-
 }
 

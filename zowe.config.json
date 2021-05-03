@@ -105,8 +105,8 @@
         }
     },
     "defaults": {
-        "zosmf": "tso1.zosmf",
-        "ssh": "tso1.ssh",
+        "zosmf": "ca11.zosmf",
+        "ssh": "ca11.ssh",
         "base": "base"
     },
     "plugins": [],

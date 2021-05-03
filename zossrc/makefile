@@ -94,7 +94,7 @@ lec: lec.c
 ###
 ###
 ###
-lib/run: lib/run.o lib/runexec.o mtlmain.o
+lib/run: lib/run.o lib/runexec.o mtlmain.o lib/ams.o
 	$(CXX) $(BND_FLAGS) -o $@ $^ > $*.bind.lst
 
 lib/run.o: lib/run.cpp
