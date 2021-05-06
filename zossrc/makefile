@@ -91,6 +91,11 @@ $(TARGET).o: $(TARGET).s
 lec: lec.c
 	$(CC) $(FLAGS) -qlist=$*.c.lst -o $@ $^
 
+
+# target
+jsontest: jsontest.c
+	$(CC) $(FLAGS) -qlist=$*.c.lst -o $@ $^
+
 ###
 ###
 ###

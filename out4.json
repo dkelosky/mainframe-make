@@ -1,0 +1,41 @@
+IKJ56455I KELDA16 LOGON IN PROGRESS AT 13:40:49 ON MAY 6, 2021
+IKJ56951I NO BROADCAST MESSAGES
+READY 
+
+{
+ "anArray": 
+   [
+    {
+       "element0": "value0" 
+    },
+    {
+       "element1": "value1" 
+    },
+    {
+       "element2": "value2" 
+    },
+    {
+       "element3": "value3" 
+    },
+    {
+       "element4": "value4" 
+    },
+    {
+       "element5": "value5" 
+    },
+    {
+       "element6": "value6" 
+    },
+    {
+       "element7": "value7" 
+    },
+    {
+       "element8": "value8" 
+    },
+    {
+       "element9": "value9" 
+    }
+   ]
+}
+READY 
+

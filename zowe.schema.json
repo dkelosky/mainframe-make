@@ -251,6 +251,110 @@
                             "if": {
                                 "properties": {
                                     "type": {
+                                        "const": "sysview"
+                                    }
+                                }
+                            },
+                            "then": {
+                                "properties": {
+                                    "properties": {
+                                        "type": "object",
+                                        "title": "SYSVIEW REST API connection details",
+                                        "description": "The SYSVIEW session profile schema, where you specify your session information and credentials",
+                                        "properties": {
+                                            "host": {
+                                                "type": "string",
+                                                "description": "The hostname of the SYSVIEW REST API"
+                                            },
+                                            "port": {
+                                                "type": "number",
+                                                "description": "The port number of the SYSVIEW REST API"
+                                            },
+                                            "user": {
+                                                "type": "string",
+                                                "description": "Your z/OS username used to authenticate to the SYSVIEW REST API",
+                                                "secure": true
+                                            },
+                                            "password": {
+                                                "type": "string",
+                                                "description": "Your z/OS password used to authenticate to the SYSVIEW REST API",
+                                                "secure": true
+                                            },
+                                            "rejectUnauthorized": {
+                                                "type": "boolean",
+                                                "description": "If set, the server certificate is verified against the list of supplied CAs",
+                                                "default": true
+                                            },
+                                            "ssid": {
+                                                "type": "string",
+                                                "description": "SSID of the SYSVIEW instance. Default value: GSVX",
+                                                "default": "GSVX"
+                                            },
+                                            "basePath": {
+                                                "type": "string",
+                                                "description": "The base path for your API mediation layer instance. Do not specify this option if you are not using an API mediation layer.",
+                                                "default": "/api/v1"
+                                            }
+                                        },
+                                        "required": [
+                                            "host",
+                                            "port",
+                                            "user",
+                                            "password"
+                                        ]
+                                    }
+                                }
+                            }
+                        },
+                        {
+                            "if": {
+                                "properties": {
+                                    "type": {
+                                        "const": "sysview-format"
+                                    }
+                                }
+                            },
+                            "then": {
+                                "properties": {
+                                    "properties": {
+                                        "type": "object",
+                                        "title": "SYSVIEW display format details",
+                                        "description": "The SYSVIEW format profile schema, where you specify display settings",
+                                        "properties": {
+                                            "contextFields": {
+                                                "type": "array",
+                                                "description": "Context fields to display. Defaults to hiding all context"
+                                            },
+                                            "overview": {
+                                                "type": "boolean",
+                                                "description": "Display the overview section"
+                                            },
+                                            "info": {
+                                                "type": "boolean",
+                                                "description": "Display the information area, if any"
+                                            },
+                                            "pretty": {
+                                                "type": "boolean",
+                                                "description": "Display formatted data"
+                                            },
+                                            "blankIfZero": {
+                                                "type": "boolean",
+                                                "description": "Show a blank space instead of '0' values"
+                                            },
+                                            "truncate": {
+                                                "type": "boolean",
+                                                "description": "Truncate displays that are too wide for the console",
+                                                "default": false
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        {
+                            "if": {
+                                "properties": {
+                                    "type": {
                                         "const": "endevor"
                                     }
                                 }
@@ -562,7 +666,8 @@
                                             },
                                             "port": {
                                                 "type": "number",
-                                                "description": "Port for the Qwikref API service that is running on the mainframe system."
+                                                "description": "Port for the Qwikref API service that is running on the mainframe system.",
+                                                "default": 1689
                                             },
                                             "user": {
                                                 "type": "string",

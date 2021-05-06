@@ -97,6 +97,12 @@
                 }
             }
         },
+        "tso": {
+            "type": "tso",
+            "properties": {
+                "account": "105300000"
+            }
+        },
         "base": {
             "type": "base",
             "properties": {
@@ -107,6 +113,7 @@
     "defaults": {
         "zosmf": "ca11.zosmf",
         "ssh": "ca11.ssh",
+        "tso": "tso",
         "base": "base"
     },
     "plugins": [],

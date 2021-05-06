@@ -1,0 +1,311 @@
+IKJ56455I KELDA16 LOGON IN PROGRESS AT 12:46:45 ON MAY 6, 2021
+IKJ56951I NO BROADCAST MESSAGES
+READY 
+
+{
+ "anArray": 
+   [
+    {
+       "element0": "value0" 
+    },
+    {
+       "element1": "value1" 
+    },
+    {
+       "element2": "value2" 
+    },
+    {
+       "element3": "value3" 
+    },
+    {
+       "element4": "value4" 
+    },
+    {
+       "element5": "value5" 
+    },
+    {
+       "element6": "value6" 
+    },
+    {
+       "element7": "value7" 
+    },
+    {
+       "element8": "value8" 
+    },
+    {
+       "element9": "value9" 
+    },
+    {
+       "element10": "value10" 
+    },
+    {
+       "element11": "value11" 
+    },
+    {
+       "element12": "value12" 
+    },
+    {
+       "element13": "value13" 
+    },
+    {
+       "element14": "value14" 
+    },
+    {
+       "element15": "value15" 
+    },
+    {
+       "element16": "value16" 
+    },
+    {
+       "element17": "value17" 
+    },
+    {
+       "element18": "value18" 
+    },
+    {
+       "element19": "value19" 
+    },
+    {
+       "element20": "value20" 
+    },
+    {
+       "element21": "value21" 
+    },
+    {
+       "element22": "value22" 
+    },
+    {
+       "element23": "value23" 
+    },
+    {
+       "element24": "value24" 
+    },
+    {
+       "element25": "value25" 
+    },
+    {
+       "element26": "value26" 
+    },
+    {
+       "element27": "value27" 
+    },
+    {
+       "element28": "value28" 
+    },
+    {
+       "element29": "value29" 
+    },
+    {
+       "element30": "value30" 
+    },
+    {
+       "element31": "value31" 
+    },
+    {
+       "element32": "value32" 
+    },
+    {
+       "element33": "value33" 
+    },
+    {
+       "element34": "value34" 
+    },
+    {
+       "element35": "value35" 
+    },
+    {
+       "element36": "value36" 
+    },
+    {
+       "element37": "value37" 
+    },
+    {
+       "element38": "value38" 
+    },
+    {
+       "element39": "value39" 
+    },
+    {
+       "element40": "value40" 
+    },
+    {
+       "element41": "value41" 
+    },
+    {
+       "element42": "value42" 
+    },
+    {
+       "element43": "value43" 
+    },
+    {
+       "element44": "value44" 
+    },
+    {
+       "element45": "value45" 
+    },
+    {
+       "element46": "value46" 
+    },
+    {
+       "element47": "value47" 
+    },
+    {
+       "element48": "value48" 
+    },
+    {
+       "element49": "value49" 
+    },
+    {
+       "element50": "value50" 
+    },
+    {
+       "element51": "value51" 
+    },
+    {
+       "element52": "value52" 
+    },
+    {
+       "element53": "value53" 
+    },
+    {
+       "element54": "value54" 
+    },
+    {
+       "element55": "value55" 
+    },
+    {
+       "element56": "value56" 
+    },
+    {
+       "element57": "value57" 
+    },
+    {
+       "element58": "value58" 
+    },
+    {
+       "element59": "value59" 
+    },
+    {
+       "element60": "value60" 
+    },
+    {
+       "element61": "value61" 
+    },
+    {
+       "element62": "value62" 
+    },
+    {
+       "element63": "value63" 
+    },
+    {
+       "element64": "value64" 
+    },
+    {
+       "element65": "value65" 
+    },
+    {
+       "element66": "value66" 
+    },
+    {
+       "element67": "value67" 
+    },
+    {
+       "element68": "value68" 
+    },
+    {
+       "element69": "value69" 
+    },
+    {
+       "element70": "value70" 
+    },
+    {
+       "element71": "value71" 
+    },
+    {
+       "element72": "value72" 
+    },
+    {
+       "element73": "value73" 
+    },
+    {
+       "element74": "value74" 
+    },
+    {
+       "element75": "value75" 
+    },
+    {
+       "element76": "value76" 
+    },
+    {
+       "element77": "value77" 
+    },
+    {
+       "element78": "value78" 
+    },
+    {
+       "element79": "value79" 
+    },
+    {
+       "element80": "value80" 
+    },
+    {
+       "element81": "value81" 
+    },
+    {
+       "element82": "value82" 
+    },
+    {
+       "element83": "value83" 
+    },
+    {
+       "element84": "value84" 
+    },
+    {
+       "element85": "value85" 
+    },
+    {
+       "element86": "value86" 
+    },
+    {
+       "element87": "value87" 
+    },
+    {
+       "element88": "value88" 
+    },
+    {
+       "element89": "value89" 
+    },
+    {
+       "element90": "value90" 
+    },
+    {
+       "element91": "value91" 
+    },
+    {
+       "element92": "value92" 
+    },
+    {
+       "element93": "value93" 
+    },
+    {
+       "element94": "value94" 
+    },
+    {
+       "element95": "value95" 
+    },
+    {
+       "element96": "value96" 
+    },
+    {
+       "element97": "value97" 
+    },
+    {
+       "element98": "value98" 
+    },
+    {
+       "element99": "value99" 
+    },
+   ]
+}
+READY 
+
